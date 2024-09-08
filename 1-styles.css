@@ -1,0 +1,26 @@
+/* Hide the underline for the link by default */
+a {
+    text-decoration: none;
+    position: relative;
+  }
+  
+  /* Create a pseudo-element for the underline */
+  a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background-color: red;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 1s ease;
+  }
+  
+  /* Show the underline when hovering over the link */
+  a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+  
