@@ -1,0 +1,97 @@
+/* 2-styles.css */
+
+/* Basic Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+/* Container for the toggle switch and text */
+.toggle {
+    display: flex;
+    align-items: center;
+}
+
+/* Hide the default checkbox */
+.toggle-cb {
+    display: none;
+}
+
+/* Style the label to create the toggle switch */
+.toggle-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+}
+
+/* The toggle switch background */
+.toggle-inner {
+    width: 180px;
+    height: 60px;
+    background-color: #ddd;
+    border-radius: 30px;
+    position: relative;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #bbb;
+}
+
+/* The movable switch */
+.toggle-switch {
+    width: 70px;
+    height: 70px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: -20px;
+    transform: translateY(-50%);
+    transition: transform 0.4s;
+    border: 2px solid #aaa;
+}
+
+/* Move the switch and change background when checked */
+.toggle-cb:checked + .toggle-label .toggle-inner {
+    background-color: #dc143c;
+}
+
+.toggle-cb:checked + .toggle-label .toggle-switch {
+    transform: translateX(140px) translateY(-50%);
+}
+
+/* Add text to the left and right of the toggle */
+.toggle-inner::before {
+    content: 'Yes';
+    position: absolute;
+    left: 10px;
+    color: #fff;
+    font-size: 30px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.toggle-cb:checked + .toggle-label .toggle-inner::before {
+    opacity: 1;
+}
+
+.toggle-inner::after {
+    content: 'No';
+    position: absolute;
+    right: 10px;
+    color: #ebebeb;
+    font-size: 30px;
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+.toggle-cb:checked + .toggle-label .toggle-inner::after {
+    opacity: 0;
+}
